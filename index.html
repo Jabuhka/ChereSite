@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Черепухус | Официальный сайт</title>
+    <link href="https://fonts.googleapis.com/css2?family=Snowburst+One&display=swap" rel="stylesheet">
+	<link rel="icon" sizes="57x57" href="icon.png"/>
+    <style>
+		.otcet {
+			text-align: center; /* Горизонтальное выравнивание */
+			margin: 20px auto;  /* Отступы сверху и снизу */
+			padding: 10px;      /* Внутренние отступы */
+			font-size: 1.2rem;  /* Размер текста */
+			color: #444;        /* Цвет текста */
+		}
+
+	
+        @keyframes snow {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        body {
+            font-family: 'Snowburst One', cursive;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #e3f2fd, #bbdefb);
+            color: #444;
+        }
+
+        header {
+            background-color: #0288d1;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 5px 0 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #0277bd;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc80;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+            min-height: calc(100vh - 120px);
+        }
+
+        .about, .subscribe, .characters, .telegram, .PCgame {
+            margin: 20px auto;
+            max-width: 900px;
+            text-align: left;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #01579b;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 25px;
+            margin: 20px 0;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #e64a19;
+        }
+
+        .characters ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .characters li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .characters li:last-child {
+            border-bottom: none;
+        }
+
+        footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            font-size: 1rem;
+            color: white;
+            animation: snow 10s linear infinite;
+        }
+
+        .snow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .garland {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .garland div {
+            width: 20px;
+            height: 20px;
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: red;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.5s;
+        }
+
+        /* Styling for tree */
+        .tree {
+            text-align: center;
+            font-size: 2rem;
+            color: green;
+            margin-top: 20px;
+        }
+
+        .tree span {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .tree .star {
+            font-size: 3rem;
+            color: yellow;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.querySelector('header');
+
+            // Add snowflakes
+            const snowContainer = document.createElement('div');
+            snowContainer.classList.add('snow-container');
+
+            for (let i = 0; i < 50; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.textContent = '❄';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 3 + 7 + 's';
+                snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+                snowContainer.appendChild(snowflake);
+            }
+
+            header.appendChild(snowContainer);
+
+            // Add garland
+            const garland = document.createElement('div');
+            garland.classList.add('garland');
+
+            const colors = ['red', 'green', 'blue', 'white'];
+
+            for (let i = 0; i < 20; i++) {
+                const bulb = document.createElement('div');
+                bulb.classList.add('bulb');
+                garland.appendChild(bulb);
+            }
+
+            header.appendChild(garland);
+
+            // Randomize bulb colors
+            setInterval(() => {
+                const bulbs = document.querySelectorAll('.garland div');
+                bulbs.forEach(bulb => {
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    bulb.style.backgroundColor = randomColor;
+                });
+            }, 1000);
+
+            // Add tree and countdown
+            const footer = document.querySelector('area');
+
+            const tree = document.createElement('div');
+            tree.classList.add('tree');
+           // tree.innerHTML = ` 
+           //     <span class="star">⭐</span>
+           //     <span>* * *</span>
+            //    <span>* * * * *</span>
+            //    <span>* * * * * * *</span>
+			//	<span>** * * * * * **</span>
+			//	<span>🪵</span>
+			//	<span>🪵</span>
+            //`;
+			 tree.innerHTML = ` 
+				<img src="chirsttree.png" width="250">
+            `;
+
+            const countdown = document.createElement('p');
+            countdown.id = 'countdown';
+            footer.appendChild(tree);
+            footer.appendChild(countdown);
+
+            // Update countdown or show New Year message
+            function updateCountdown() {
+                const newYear = new Date('January 1, 2026 00:00:00');
+                const now = new Date();
+                const diff = newYear - now;
+                
+                if (diff <= 0) {
+                    countdown.textContent = 'С Новым годом!';
+                } else {
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                    countdown.textContent = `До Нового года: ${days} дн. ${hours} ч. ${minutes} мин. ${seconds} сек.`;
+                }
+            }
+
+            setInterval(updateCountdown, 1000);
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Черепухус</h1>
+        <p>Официальный сайт канала</p>
+    </header>
+
+    <nav>
+        <a href="#about">О канале</a>
+        <a href="#characters">Персонажи</a>
+        <a href="#subscribe">Подписка</a>
+    </nav>
+
+    <div class="content">
+        <section id="about" class="about">
+            <h2>О канале</h2>
+            <p>Черепухус — это уникальное место, где собраны интересные видео, забавные моменты и крутые проекты! Если вы ищете что-то новое, увлекательное и вдохновляющее, Черепухус — ваш выбор.</p>
+        </section>
+
+        <section id="characters" class="characters">
+            <h2>Персонажи</h2>
+            <ul>
+                <li><strong>Черепухус:</strong> Главный герой, черепашка с неутомимым любопытством к миру.</li>
+                <li><strong>Черемайки:</strong> Лучший друг Черепухуса, обожает шутить и есть жаб.</li>
+                <li><strong>Жабушка:</strong> Подруга Черепухуса, появлялась во многих видео.</li>
+            </ul>
+        </section>
+
+        <section id="subscribe" class="subscribe">
+            <h2>Подпишись!</h2>
+            <p>Будь в курсе всех новинок и не пропусти ни одного видео! Нажми на кнопку ниже, чтобы подписаться на наши каналы.</p>
+            <a href="https://www.youtube.com/channel/UCbtfptQwCUsWtVAAU2aKhHQ?sub_confirmation=1" class="cta-button" target="_blank">Подписаться на канал Черепухус</a>
+			<a href="https://www.youtube.com/channel/UC899cYMkonSqkeUlNjwUwjw?sub_confirmation=1" class="cta-button" target="_blank">Подписаться на канал Черепухус и друзьятки</a>
+        </section>
+		
+		<section id="telegram" class="telegram">
+            <h2>Телеграм</h2>
+            <p>Будь в курсе всех новостей про канал! Нажми на кнопку ниже, чтобы подписаться на наши телеграм каналы.</p>
+            <a href="https://t.me/cherepuhus" class="cta-button" target="_blank">Телеграм канал Черепухус</a>
+			<a href="https://t.me/CherepuhusIDruzyatki" class="cta-button" target="_blank">Телеграм канал Черепухус и друзьятки</a>
+        </section>
+		
+		<section id="PCgame" class="PCgame">
+            <h2>Игра "УБЕГИ ОТ ЖАБУШКИ!"</h2>
+            <p>Тебе скучно? Сыграй в эту веб игру про жабушку! Ты можешь сыграть в веб версию,а если понравиться,то скачай её!</p>
+            <a href="https://cherepuhus.github.io/JabaMiniGames/" class="cta-button" target="_blank">Веб-Игра (PC)</a>
+			<a href="https://download848.mediafire.com/al6iu01sanfg_zEA55szyMSanprPnWGqrovejysyJ3I4JbVF0IVu3q5w24ZyUPoezGFNXFxK9u8z92BLb5cf8qJW_vXRQCev4cCp-x23DCLGWgFEzfXrVisu_9mN9feUNape_5ppLv0HLsBqHtc7_IczBG9sIXhBiPm4YFT0Y9QAFw/rled3ex0btpfhnh/RunFromJabuhka.zip" class="cta-button" target="_blank">Скачать игру (PC)</a>
+        </section>
+    </div>
+
+        <area id="otcet" class="otcet">
+            <!--<h2>Отчет до нового года</h2>-->
+        </area>
+    <footer>
+        <p>&copy; 2024 Черепухус. Все права защищены.</p>
+    </footer>
+</body>
+</html>
